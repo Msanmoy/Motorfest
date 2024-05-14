@@ -118,7 +118,7 @@ input:valid ~ label{
     text-decoration: underline;
 }
 
-button{
+.button{
     width: 100%;
     height: 45px;
     border-radius: 40px;
@@ -131,8 +131,9 @@ button{
     transition: .4s;
 }
 
-button:hover{
-    opacity: .9;
+.button:hover{
+    opacity: .5;
+    height: 55px;
 }
 
 .registrar{
@@ -164,4 +165,8 @@ h3 a{
     justify-content: center;
     margin: 30px;
 
+}
+
+.error {
+    color: red;
 }
