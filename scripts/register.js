@@ -4,11 +4,13 @@ function validarFormulario(fr = false) {
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
+    const repassword = document.getElementById('repassword').value.trim();
     const phone = document.getElementById('phone').value.trim();
 
     document.getElementById('nombreError').textContent = '';
     document.getElementById('emailError').textContent = '';
     document.getElementById('passwordError').textContent = '';
+    document.getElementById('repasswordError').textContent = '';
 
     if (nombre === '') {
         document.getElementById('nombreError').classList.add("error")
@@ -41,6 +43,15 @@ function validarFormulario(fr = false) {
         document.getElementById('passwordErro').textContent = '';
     }
 
+    if(!(repassword === password)) {
+        document.getElementById('repasswordError').classList.add("error")
+        document.getElementById('repasswordErro').textContent = "Las contraseñas no coinciden";
+        isValid = false;
+    } else {
+        document.getElementById('repasswordError').classList.remove("error")
+        document.getElementById('repasswordErro').textContent = '';
+    }
+
     if (phone === '') {
         document.getElementById('phoneError').classList.add("error")
         isValid = false;
@@ -54,7 +65,7 @@ function validarFormulario(fr = false) {
         isValid = false;
     }
 
-    return { isValid, values: { nombre, email, password, phone } }
+    return { isValid, values: { nombre, email, password, repassword, phone } }
 };
 
 function submitForm() {
@@ -82,6 +93,10 @@ document.getElementById('email').addEventListener('input', () => {
 })
 
 document.getElementById('password').addEventListener('input', () => {
+    validarFormulario()
+})
+
+document.getElementById('repassword').addEventListener('input', () => {
     validarFormulario()
 })
 
