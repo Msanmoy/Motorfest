@@ -2,6 +2,7 @@ function validarFormulario() {
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
+    const phone = document.getElementById('phone').value.trim();
     let isValid = true;
 
     document.getElementById('nombreError').textContent = '';
@@ -9,24 +10,43 @@ function validarFormulario() {
     document.getElementById('passwordError').textContent = '';
 
     if (nombre === '') {
-        document.getElementById('nombreError').textContent = 'Por favor ingresa tu nombre';
+        document.getElementById('nombreError').classList.add("error")
         isValid = false;
+    } else {
+        document.getElementById('nombreError').classList.remove("error")
     }
 
     if (email === '') {
-        document.getElementById('emailError').textContent = 'Por favor ingresa tu email';
+        document.getElementById('emailError').classList.add("error")
         isValid = false;
     } else if (!emailValido(email)) {
-        document.getElementById('emailError').textContent = 'Ingresa un email válido';
+        document.getElementById('emailErro').textContent = 'Ingresa un email válido';
+        document.getElementById('emailError').classList.add("error")
         isValid = false;
+    } else {
+        document.getElementById('emailError').classList.remove("error")
+        document.getElementById('emailErro').textContent = '';
     }
 
     if (password === '') {
-        document.getElementById('passwordError').textContent = 'Por favor ingresa una contraseña';
+        document.getElementById('passwordError').classList.add("error")
         isValid = false;
     } else if (!isValidPassword(password)){
-        document.getElementById('passwordError').textContent = 'Ingresa una constraseña valida';
+        document.getElementById('passwordErro').textContent = 'Ingresa una constraseña valida';
+        document.getElementById('passwordError').classList.add("error")
+        isValid = false;
+    } else {
+        document.getElementById('passwordError').classList.remove("error")
+        document.getElementById('passwordErro').textContent = '';
     }
+
+    if (phone === '') {
+        document.getElementById('phoneError').classList.add("error")
+        isValid = false;
+    } else {
+        document.getElementById('phoneError').classList.remove("error")
+    }
+    
 
     return isValid;
 }

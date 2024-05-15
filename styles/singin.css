@@ -168,5 +168,5 @@ h3 a{
 }
 
 .error {
-    color: red;
+    color: red !important;
 }
