@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../styles/singin.css">
     <title>Registrarse - Motorfest</title>
     <link rel="icon" href="../images/logo.ico">
-    <script src="../scripts/register.js"></script>
+    <script src="../scripts/register.js" defer></script>
 </head>
 <body>
     <section>
         
         <div class="contenedor">
             <div class="formulario">
-                <form id="form" action="#" onsubmit="return validarFormulario()">
+                <form id="form" action="#" onsubmit="return submitForm()">
                     <a href="../index.html"><img src="../images/logo.jpg"></a>
                     
                     <h2>Registro</h2>
@@ -46,7 +46,7 @@
 
                     <div class="olvidar">
                         <label for="#">
-                            <input type="checkbox" required> Aceptar
+                            <input id="check" type="checkbox"> Aceptar
                             <a href="#">Terminos y condiciones</a>
                         </label>
                     </div>

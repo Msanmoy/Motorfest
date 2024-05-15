@@ -1,9 +1,10 @@
-function validarFormulario() {
+function validarFormulario(fr = false) {
+    let isValid = true;
+
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    let isValid = true;
 
     document.getElementById('nombreError').textContent = '';
     document.getElementById('emailError').textContent = '';
@@ -31,7 +32,7 @@ function validarFormulario() {
     if (password === '') {
         document.getElementById('passwordError').classList.add("error")
         isValid = false;
-    } else if (!isValidPassword(password)){
+    } else if (!isValidPassword(password)) {
         document.getElementById('passwordErro').textContent = 'Ingresa una constraseña valida';
         document.getElementById('passwordError').classList.add("error")
         isValid = false;
@@ -46,9 +47,20 @@ function validarFormulario() {
     } else {
         document.getElementById('phoneError').classList.remove("error")
     }
-    
 
-    return isValid;
+    const check = document.getElementById('check').checked
+    if (!check) {
+        if (isValid && fr) alert("Debe aceptar Terminos y condiciones")
+        isValid = false;
+    }
+
+    return { isValid, values: { nombre, email, password, phone } }
+};
+
+function submitForm() {
+    const { isValid, values } = validarFormulario(true)
+
+    alert(JSON.stringify(values))
 }
 
 function emailValido(email) {
@@ -60,3 +72,23 @@ function isValidPassword(password) {
     const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])(?!\s)[a-zA-Z\d#$@!%&*?]{8,16}$/gm;
     return passRegex.test(password);
 }
+
+document.getElementById('nombre').addEventListener('input', () => {
+    validarFormulario()
+})
+
+document.getElementById('email').addEventListener('input', () => {
+    validarFormulario()
+})
+
+document.getElementById('password').addEventListener('input', () => {
+    validarFormulario()
+})
+
+document.getElementById('phone').addEventListener('input', () => {
+    validarFormulario()
+})
+
+document.getElementById('check').addEventListener('change', () => {
+    validarFormulario(true)
+})
