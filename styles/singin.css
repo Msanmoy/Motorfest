@@ -14,14 +14,14 @@ section{
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: 200vh;
     background: url(../images/CircuitoJerezLogin.jpg);
     background-position: center;
     background-size: cover;    
 }
 
 .contenedor{
-    position: relative;
+    position: absolute;
     width: 400px;
     border: 2px solid rgba(255, 255, 255, .6);
     border-radius: 20px;
@@ -30,6 +30,8 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 50px;
+    
 }
 
 .contenedor img{
@@ -168,4 +170,44 @@ h3 a{
 
 .error {
     color: red !important;
+}
+
+.contenedorRequired{
+    position: relative;
+    width: 400px;
+    border: 2px solid rgba(255, 255, 255, .6);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 150px;
+    
+    
+}
+
+
+.contenedorRequired h3{
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    bottom: 90px;
+    
+}
+
+#interior {
+    position: absolute;
+    bottom: 20px;
+}
+
+#interior ul {
+    list-style: none;
+}
+
+#interior li {
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
 }

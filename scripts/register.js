@@ -1,4 +1,4 @@
-function validarFormulario(fr = false) {
+function validarFormulario() {
     let isValid = true;
 
     const nombre = document.getElementById('nombre').value.trim();
@@ -59,12 +59,6 @@ function validarFormulario(fr = false) {
         document.getElementById('phoneError').classList.remove("error")
     }
 
-    const check = document.getElementById('check').checked
-    if (!check) {
-        if (isValid && fr) alert("Debe aceptar Terminos y condiciones")
-        isValid = false;
-    }
-
     return { isValid, values: { nombre, email, password, repassword, phone } }
 };
 
@@ -104,6 +98,8 @@ document.getElementById('phone').addEventListener('input', () => {
     validarFormulario()
 })
 
-document.getElementById('check').addEventListener('change', () => {
-    validarFormulario(true)
-})
+
+const tyc = document.getElementById("check");
+const enviar = document.getElementById("enviar");
+
+const cambiarCondiciones = () => tyc.checked ? enviar.disabled = false : enviar.disabled = true

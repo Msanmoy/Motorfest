@@ -47,19 +47,19 @@
 
                     <div class="input-contenedor">
                         <i id="phoneError" class="fa-solid fa-phone"></i>
-                        <input id="phone" type="tel">
+                        <input id="phone" type="tel" maxlength="9">
                         <label for="phone">Teléfono</label>
                     </div>
 
                     <div class="olvidar">
                         <label for="#">
-                            <input id="check" type="checkbox"> Aceptar
+                            <input id="check" type="checkbox" onchange="cambiarCondiciones()"> Aceptar
                             <a href="#">Terminos y condiciones</a>
                         </label>
                     </div>
 
                     <div>
-                        <input class="button" value="Acceder" type="submit">
+                        <input disabled class="button" value="Acceder" type="submit" id="enviar">
     
                         <div class="registrar">
                             <p>Ya tengo una cuenta <a href="iniciarSesion.html">Iniciar Sesión</a></p>
@@ -71,7 +71,21 @@
                 
             </div>
         </div>
+        <div class="contenedorRequired">
+            <h3>Necesario en la contraseña</h3>
+            <div id="interior">
+                <ul>
+                    <li>Debe contener de 8 a 16 caracteres</li>
+                    <li>Debe empezar por una mayuscula</li>
+                    <li>Debe contener mínimo un dígito</li>
+                    <li>Debe contener un caracter especial (#$@!%&*?)</li>
+                    <li>No puede tener espacios</li>
+                </ul>
+            </div>
+        </div>
     </section>
+
+    
     
 </body>
 </html>
